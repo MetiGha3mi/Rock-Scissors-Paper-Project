@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rock Sissors and Paper game built by Javascript power, you can test and enjoy it."
+    />
+    <meta name="keywords" content="Rock, Scissors, Paper" />
+    <meta name="author" content="meti.ghasemi82@gmail.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Signika:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/queries.css" />
+    <title>Rock | Scissors | Paper</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header-primary">Rock Scissor Paper game</h1>
+      <h2 class="header-secondary game-condition hide-texts">Game condition</h2>
+    </header>
+    <section class="game-section">
+      <h2 class="header-info">Win range is 10 score</h2>
+      <div class="game-area">
+        <div class="bot-game-info game-info">
+          <div class="player-name bot-name">Robot</div>
+          <div class="player-score bot-score">0</div>
+        </div>
+        <div class="bot-game playing">
+          <img
+            src=""
+            alt="Rock Scissors Paper image"
+            class="playing-img bot-game-result hidden"
+          />
+        </div>
+        <div class="your-game playing">
+          <img
+            src=""
+            alt="Rock Scissors Paper image"
+            class="playing-img your-game-result hidden"
+          />
+        </div>
+        <div class="your-game-info game-info">
+          <div class="player-name your-name">You</div>
+          <div class="player-score your-score">0</div>
+        </div>
+      </div>
+      <div class="game-on-condition">
+        <h2 class="header-secondary game-on-header hide-texts">
+          game condition on
+        </h2>
+      </div>
+      <div class="game-buttons">
+        <div class="playing-btns">
+          <button class="btn-game rock" id="btn-game">Rock</button>
+          <button class="btn-game scissors" id="btn-game">Scissors</button>
+          <button class="btn-game paper" id="btn-game">Paper</button>
+        </div>
+        <button class="btn btn-reset">Reset game</button>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
