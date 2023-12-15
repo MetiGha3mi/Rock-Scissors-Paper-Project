@@ -1,0 +1,19 @@
+{
+  "name": "rockscissorspaper-project",
+  "version": "1.0.0",
+  "description": "Comming soon ...!",
+  "main": "script.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "Meti Gha3mi",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  },
+  "dependencies": {
+    "core-js": "^3.34.0",
+    "regenerator-runtime": "^0.14.0"
+  }
+}
