@@ -17,6 +17,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="script.js"></script>
     <title>Rock | Scissors | Paper</title>
   </head>
   <body>
@@ -25,7 +26,10 @@
       <h2 class="header-secondary game-condition hide-texts">Game condition</h2>
     </header>
     <section class="game-section">
-      <h2 class="header-info">Win range is 10 score</h2>
+      <h2 class="header-info">
+        Win range is
+        <span class="win-score">10 score</span>
+      </h2>
       <div class="game-area">
         <div class="bot-game-info game-info">
           <div class="player-name bot-name">Robot</div>
@@ -51,9 +55,9 @@
         </div>
       </div>
       <div class="game-on-condition">
-        <!-- <h2 class="header-secondary game-on-header hide-texts">
+        <h2 class="header-secondary game-on-header hide-texts">
           game condition on
-        </h2> -->
+        </h2>
       </div>
       <div class="game-buttons">
         <div class="playing-btns">
@@ -64,6 +68,5 @@
         <button class="btn btn-reset">Reset game</button>
       </div>
     </section>
-    <script src="script.js"></script>
   </body>
 </html>
