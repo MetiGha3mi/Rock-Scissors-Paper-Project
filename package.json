@@ -10,6 +10,8 @@
   "author": "Meti Gha3mi",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/packager-raw-url": "^2.10.3",
+    "@parcel/transformer-webmanifest": "^2.10.3",
     "parcel": "^2.10.3"
   },
   "dependencies": {
