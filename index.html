@@ -32,13 +32,68 @@
   </head>
   <body>
     <header class="header">
-      <button class="btn btn--increase__score">Increase</button>
+      <div class="increae--box">
+        <button class="btn btn--increase__score">Increase</button>
+        <form class="increae--form" action="#">
+          <input class="increase--input" type="number" />
+          <button type="submit" class="increaes--submit">Ok</button>
+        </form>
+      </div>
       <h1 class="primary--heading">Rock Scissors Paper</h1>
       <button class="btn btn--check__history">History</button>
     </header>
     <main class="main container">
-      <section class="game--flow__section"></section>
-      <section class="game--pannel__section"></section>
+      <section class="game--flow__section">
+        <div class="user--box user--bot__box">
+          <div class="user--name">Robot</div>
+          <div class="user--score">0</div>
+        </div>
+        <div class="game--flow__box">
+          <div class="game--flow">
+            <div class="user--flow">
+              <img
+                class="game--flow__img bot--game__flow-img"
+                src="src/img/paperGame.png"
+                alt="RSP game img"
+              />
+            </div>
+            <div class="win--range__box">
+              <span class="win--range">10</span>
+            </div>
+            <div class="user--flow">
+              <img
+                class="game--flow__img bot--game__flow-img"
+                src="src/img/paperGame.png"
+                alt="RSP game img"
+              />
+            </div>
+          </div>
+          <div class="game--message__box">
+            <span class="game--message"> Please Start the Game! </span>
+          </div>
+        </div>
+        <div class="user--box user--you__box">
+          <div class="user--name">You</div>
+          <div class="user--score">0</div>
+        </div>
+      </section>
+      <section class="game--pannel__section">
+        <div class="game--pannel">
+          <button class="btn btn--game__pannel">Rock</button>
+          <button class="btn btn--game__pannel">Scissors</button>
+          <button class="btn btn--game__pannel">Paper</button>
+        </div>
+        <div class="reset--pannel">
+          <button class="btn btn--reset__pannel">Reset</button>
+        </div>
+      </section>
     </main>
+    <div class="overlay"></div>
+    <button class="btn--close">&Cross;</button>
+    <div class="history--box">
+      <ul class="history--list">
+        <li class="history--list__item">Hello</li>
+      </ul>
+    </div>
   </body>
 </html>

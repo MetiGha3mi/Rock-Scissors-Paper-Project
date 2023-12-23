@@ -11,6 +11,7 @@ body {
   height: 100vh;
   background-repeat: no-repeat;
   color: #333;
+  position: relative;
 }
 
 .container {
