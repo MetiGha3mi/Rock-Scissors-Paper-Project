@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Rock Sissors and Paper game built by Javascript power, you can test and enjoy it."
+      content="Rock Sissors and Paper game powered by JavaScript, you can test and enjoy it."
     />
     <meta name="keywords" content="Rock, Scissors, Paper" />
     <meta name="author" content="meti.ghasemi82@gmail.com" />
@@ -24,61 +24,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/header.css" />
     <script type="module" src="src/js/controller.js"></script>
     <title>Rock | Scissors | Paper</title>
   </head>
   <body>
     <header class="header">
-      <button class="btn-increase-score btn">Increase</button>
-      <form class="increase-form" action="#">
-        <div class="increase-box">
-          <label class="increase-label" for="increase"
-            >Define your favorite ending score:</label
-          >
-          <input type="number" class="increase-input" id="increase" />
-        </div>
-        <button type="submit" class="submit-increase--form btn">Submit</button>
-      </form>
-      <h1 class="header-primary">Rock Scissor Paper game</h1>
-      <button class="btn-results btn">Results</button>
+      <button class="btn btn--increase__score">Increase</button>
+      <h1 class="primary--heading">Rock Scissors Paper</h1>
+      <button class="btn btn--check__history">History</button>
     </header>
-    <section class="game-section">
-      <h2 class="header-info">
-        Win range is
-        <span class="win-score">10 score</span>
-      </h2>
-      <div class="game-area">
-        <div class="bot-game-info game-info">
-          <div class="player-name bot-name">Robot</div>
-          <div class="player-score bot-score">0</div>
-        </div>
-        <div class="bot-game playing">
-          <!-- <img
-            src=""
-            alt="Rock Scissors Paper image"
-            class="playing-img bot-game-result hidden"
-          /> -->
-        </div>
-        <div class="your-game playing">
-          <!-- <img
-            src=""
-            alt="Rock Scissors Paper image"
-            class="playing-img your-game-result hidden"
-          /> -->
-        </div>
-        <div class="your-game-info game-info">
-          <div class="player-name your-name">You</div>
-          <div class="player-score your-score">0</div>
-        </div>
-      </div>
-      <div class="game-buttons">
-        <div class="playing-btns">
-          <button class="btn-game rock btn" id="btn-game">Rock</button>
-          <button class="btn-game scissors btn" id="btn-game">Scissors</button>
-          <button class="btn-game paper btn" id="btn-game">Paper</button>
-        </div>
-        <button class="btn btn-reset">Reset game</button>
-      </div>
-    </section>
   </body>
 </html>
