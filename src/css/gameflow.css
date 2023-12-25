@@ -1,3 +1,4 @@
+/* Game flow Section */
 .game--flow__section {
   width: 100%;
   display: flex;
@@ -16,16 +17,14 @@
   align-items: center;
   gap: 3rem;
 }
+
 .user--name {
   width: 6rem;
   height: 6rem;
   border: 5px solid #333;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 1.4rem;
 }
+
 .user--score {
   font-size: 4rem;
 }
@@ -34,23 +33,21 @@
   width: 55%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   align-items: center;
+  gap: 2rem;
 }
+
 .game--flow {
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
 .win--range__box {
   width: 5.5rem;
   height: 5.5rem;
   border: 4px solid #ffffffcc;
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .win--range {
   font-size: 2rem;

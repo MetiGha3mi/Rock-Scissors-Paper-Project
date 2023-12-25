@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta Data -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +11,8 @@
     />
     <meta name="keywords" content="Rock, Scissors, Paper" />
     <meta name="author" content="meti.ghasemi82@gmail.com" />
+
+    <!-- Favicons -->
     <link rel="icon" href="src/img/favicons/favicon.png" type="image/x-icon" />
     <link
       rel="apple-touch-icon"
@@ -17,37 +20,44 @@
       type="image/x-icon"
     />
     <link rel="manifest" href="src/img/favicons/manifest.webmanifest" />
+
+    <!-- Application font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Signika:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Style Sheets -->
     <link rel="stylesheet" href="src/css/style.css" />
     <link rel="stylesheet" href="src/css/header.css" />
     <link rel="stylesheet" href="src/css/gameflow.css" />
     <link rel="stylesheet" href="src/css/gamepannel.css" />
+    <link rel="stylesheet" href="src/css/modal.css" />
     <script type="module" src="src/js/controller.js"></script>
+
     <title>Rock | Scissors | Paper</title>
   </head>
   <body>
+    <!-- Game Header -->
     <header class="header">
-      <div class="increae--box">
-        <button class="btn btn--increase__score">Increase</button>
-        <form class="increae--form" action="#">
-          <input class="increase--input" type="number" />
-          <button type="submit" class="increaes--submit">Ok</button>
-        </form>
-      </div>
+      <button class="btn--all btn btn--increase__score">Increase</button>
       <h1 class="primary--heading">Rock Scissors Paper</h1>
-      <button class="btn btn--check__history">History</button>
+      <button class="btn--all btn btn--check__history">History</button>
     </header>
+
+    <!-- Game Main Container -->
     <main class="main container">
+      <!-- Game Flow Section -->
       <section class="game--flow__section">
+        <!-- Robot User Info -->
         <div class="user--box user--bot__box">
-          <div class="user--name">Robot</div>
+          <div class="circle--box user--name">Robot</div>
           <div class="user--score">0</div>
         </div>
+
+        <!-- Game Flow -->
         <div class="game--flow__box">
           <div class="game--flow">
             <div class="user--flow">
@@ -57,7 +67,7 @@
                 alt="RSP game img"
               />
             </div>
-            <div class="win--range__box">
+            <div class="circle--box win--range__box">
               <span class="win--range">10</span>
             </div>
             <div class="user--flow">
@@ -72,27 +82,87 @@
             <span class="game--message"> Please Start the Game! </span>
           </div>
         </div>
+
+        <!-- Your User Info -->
         <div class="user--box user--you__box">
-          <div class="user--name">You</div>
+          <div class="circle--box user--name">You</div>
           <div class="user--score">0</div>
         </div>
       </section>
+
+      <!-- Game Pannel Section -->
       <section class="game--pannel__section">
+        <!-- Game Btns Pannel -->
         <div class="game--pannel">
-          <button class="btn btn--game__pannel">Rock</button>
-          <button class="btn btn--game__pannel">Scissors</button>
-          <button class="btn btn--game__pannel">Paper</button>
+          <button class="btn--all btn btn--game__pannel">Rock</button>
+          <button class="btn--all btn btn--game__pannel">Scissors</button>
+          <button class="btn--all btn btn--game__pannel">Paper</button>
         </div>
+
+        <!-- Reset Btn Pannel -->
         <div class="reset--pannel">
-          <button class="btn btn--reset__pannel">Reset</button>
+          <button class="btn--all btn btn--reset__pannel">Reset</button>
         </div>
       </section>
     </main>
-    <div class="overlay"></div>
-    <button class="btn--close">&Cross;</button>
-    <div class="history--box">
+
+    <!-- Modal Overlay and Close Btn -->
+    <div class="overlay hidden"></div>
+    <button class="btn--close hidden">&Cross;</button>
+
+    <!-- Game Regular Message Modal -->
+    <div class="modal game--modal__message hidden">
+      <p class="game--modal__message-text">You won!</p>
+      <button class="btn--all btn--modal btn--game__modal">Ok</button>
+    </div>
+
+    <!-- Game Alert Message Modal -->
+    <div class="modal game--alert hidden">
+      <p class="game--alert__text">
+        Your game will be lost!! Do you want to continiue?
+      </p>
+      <div class="game--alert__btns">
+        <button
+          class="btn--all btn--modal game--alert__btn game--alert__yes-btn"
+        >
+          Yes
+        </button>
+        <button
+          class="btn--all btn--modal game--alert__btn game--alert__no-btn"
+        >
+          No
+        </button>
+      </div>
+    </div>
+
+    <!-- Game Increase Score Form Modal -->
+    <form class="modal increase--form hidden" action="#">
+      <div class="increase--form__box">
+        <label for="increase" class="increase--label"
+          >Please Set your favorite ending score:</label
+        >
+        <input class="increase--input" id="increase" type="number" />
+      </div>
+      <button type="submit" class="btn--all increaes--submit">Ok</button>
+    </form>
+
+    <!-- Game History Modal -->
+    <div class="modal history--box hidden">
+      <h2 class="secondary--heading">Game History</h2>
       <ul class="history--list">
-        <li class="history--list__item">Hello</li>
+        <li class="history--list__item">
+          <div class="history--user">
+            <span class="circle--box history--user__name">Robot</span>
+          </div>
+          <div class="history--game__resutls">
+            <div class="history--user__results">0</div>
+            <div class="history--results__message">Nothing</div>
+            <div class="history--user__results">0</div>
+          </div>
+          <div class="history--user">
+            <span class="circle--box history--user__name">You</span>
+          </div>
+        </li>
       </ul>
     </div>
   </body>

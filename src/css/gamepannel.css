@@ -1,3 +1,4 @@
+/* Game Pannel */
 .game--pannel__section {
   width: 100%;
   text-align: center;
@@ -7,8 +8,8 @@
   width: 40%;
   margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: space-around;
+  align-items: center;
   margin-bottom: 2rem;
 }
 
