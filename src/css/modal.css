@@ -115,7 +115,8 @@
 }
 
 .increaes--submit {
-  border-radius: 12px;
+  padding: 0.6rem 0;
+  font-size: 1rem;
 }
 
 /* History */
