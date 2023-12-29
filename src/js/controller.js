@@ -15,7 +15,6 @@ const controlGamePannel = function (data) {
 
 // init function
 const init = function () {
-  console.log("Hello World");
   gamePannelView.addHandlerClick(controlGamePannel);
 };
 init();
