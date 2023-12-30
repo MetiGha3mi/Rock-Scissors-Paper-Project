@@ -10,13 +10,9 @@ class GamePannelView {
       const btn = e.target.closest(".btn");
       if (!btn) return;
 
-      handler(btn.dataset.name);
+      const data = btn.dataset.name;
+      handler(data);
     });
-  }
-
-  render(data) {
-    if (!data) return;
-    console.log(data);
   }
 }
 

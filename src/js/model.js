@@ -2,12 +2,17 @@
 import "core-js";
 import "regenerator-runtime";
 
+// Game Images
+import imgRock from "../img/rockGame.png";
+import imgScissors from "../img/scissorsGame.png";
+import imgPaper from "../img/paperGame.png";
+
 // Data State
 export const state = {
   gameImgURLs: {
-    rock: "./src/img/rockGame.png",
-    scissors: "./src/img/scissorsGame.png",
-    paper: "./src/img/paperGame.png",
+    rock: imgRock,
+    scissors: imgScissors,
+    paper: imgPaper,
   },
   moves: {
     robotMove: "",
@@ -19,6 +24,8 @@ export const state = {
   },
   data: {},
   gameMessage: "",
+  gameRange: 1,
+  isGameEnd: false,
 };
 
 // Run the Game
@@ -33,6 +40,7 @@ export const gameRun = function (data) {
   // 3) Collect the Moves in an Array and Send Them for Game Logic
   const gameMoves = [state.moves.robotMove, state.moves.playerMove];
   state.gameMessage = gameLogic(gameMoves);
+  isGameEnd();
 
   // 4) Return Final Data for Render
   state.data = {
@@ -43,8 +51,8 @@ export const gameRun = function (data) {
       player: state.gameImgURLs[gameMoves[1]],
     },
     gameMessage: state.gameMessage,
+    gameRange: state.gameRange,
   };
-  return state.data;
 };
 
 // Generate Robot Move
@@ -75,7 +83,7 @@ const gameLogic = function (gameMoves) {
     return "Score for Player!";
   } else if (gameMoves[0] === "paper" && gameMoves[1] == "rock") {
     state.scores.robotScore++;
-    return "Score for Player!";
+    return "Score for Robot!";
   }
 
   // 3) Score for Scissors
@@ -89,4 +97,17 @@ const gameLogic = function (gameMoves) {
 
   // 4) Draw
   if (gameMoves[0] === gameMoves[1]) return "Draw";
+};
+
+// Game End
+const isGameEnd = function () {
+  // 1) Collect the Scores in an Array
+  const scores = [state.scores.playerScore, state.scores.robotScore];
+
+  // 2) Check if Game Ends
+  if (scores.some((num) => num === state.gameRange)) {
+    state.isGameEnd = true;
+    state.gameMessage =
+      scores[0] === state.gameRange ? "Player won" : "Robot won!";
+  }
 };
