@@ -14,6 +14,28 @@ class IncreaseFormView extends ModalView {
     this._addHandlerShowWindow();
     this._addHandlerHideWindow();
   }
+
+  getNewGameRange() {
+    const inputValue =
+      +this._parentElement.querySelector(".increase--input").value;
+    this._clearInput();
+    this._close();
+    return inputValue;
+  }
+
+  addHandlerSubmit(handler) {
+    this._parentElement.addEventListener("submit", function (e) {
+      e.preventDefault();
+      handler();
+    });
+  }
+
+  _clearInput() {
+    this._parentElement.querySelector(".increase--input").value = "";
+  }
+  _close() {
+    this._hideWindow();
+  }
 }
 
 export default new IncreaseFormView();

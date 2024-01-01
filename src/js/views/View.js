@@ -2,6 +2,9 @@
 import "core-js";
 import "regenerator-runtime";
 
+// Modules
+import { LOAD_TIME } from "../config";
+
 export default class View {
   _data;
 
@@ -15,7 +18,18 @@ export default class View {
 
       this._clear();
       this._parentElement.insertAdjacentHTML("afterbegin", markup);
-    }, 400);
+      this._setScores(this._data.scores);
+    }, LOAD_TIME);
+  }
+
+  reset(data) {
+    this._data = data;
+    if (!data) return;
+    const markup = this._resetGameMarkup();
+    this._clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
+
+    this._setScores(this._data.scores);
   }
 
   _clear() {

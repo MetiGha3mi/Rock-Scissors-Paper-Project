@@ -24,25 +24,22 @@ export const state = {
   },
   data: {},
   gameMessage: "",
-  gameRange: 1,
+  gameRange: 10,
   isGameEnd: false,
 };
 
 // Run the Game
 export const gameRun = function (data) {
-  // 1) Guard for Reset btn
-  if (data === "reset") return;
-
-  // 2) Set the Each User Real Moves
+  // 1) Set the Each User Real Moves
   state.moves.robotMove = generateRobotMove();
   state.moves.playerMove = data;
 
-  // 3) Collect the Moves in an Array and Send Them for Game Logic
+  // 2) Collect the Moves in an Array and Send Them for Game Logic
   const gameMoves = [state.moves.robotMove, state.moves.playerMove];
   state.gameMessage = gameLogic(gameMoves);
   isGameEnd();
 
-  // 4) Return Final Data for Render
+  // 3) Return Final Data for Render
   state.data = {
     scores: state.scores,
     moves: state.moves,
@@ -53,6 +50,12 @@ export const gameRun = function (data) {
     gameMessage: state.gameMessage,
     gameRange: state.gameRange,
   };
+};
+
+// Set Game Range
+export const setGameRange = function (value) {
+  state.gameRange = value;
+  return state.gameRange;
 };
 
 // Generate Robot Move
@@ -110,4 +113,22 @@ const isGameEnd = function () {
     state.gameMessage =
       scores[0] === state.gameRange ? "Player won" : "Robot won!";
   }
+};
+
+// Reset Game
+export const resetGame = function () {
+  state.moves = {
+    robotMove: "",
+    playerMove: "",
+  };
+  state.scores = {
+    robotScore: 0,
+    playerScore: 0,
+  };
+  state.data = {};
+  state.gameMessage = "Please start the game";
+  state.gameRange = 10;
+  state.isGameEnd = false;
+
+  return state;
 };

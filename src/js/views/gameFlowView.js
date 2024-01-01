@@ -4,21 +4,13 @@ import "regenerator-runtime";
 
 // Modules
 import View from "./View.js";
+import { LOAD_TIME } from "../config.js";
 
 class GameFlowView extends View {
-  _parentElement = document.querySelector(".game--flow__section");
-  _gameFlowElement = document.querySelector(".game--flow__box");
+  _parentElement = document.querySelector(".game--flow__box");
 
   _generateMarkup() {
     return `
-        <!-- Robot User Info -->
-        <div class="user--box user--bot__box">
-          <div class="circle--box user--name">Robot</div>
-          <div class="user--score">${this._data.scores.robotScore}</div>
-        </div>
-
-        <!-- Game Flow -->
-        <div class="game--flow__box">
           <div class="game--flow">
             <div class="user--flow">
               <img
@@ -41,14 +33,37 @@ class GameFlowView extends View {
           <div class="game--message__box">
             <span class="game--message"> ${this._data.gameMessage} </span>
           </div>
-        </div>
-
-        <!-- Your User Info -->
-        <div class="user--box user--you__box">
-          <div class="circle--box user--name">You</div>
-          <div class="user--score">${this._data.scores.playerScore}</div>
-        </div>
     `;
+  }
+
+  _resetGameMarkup() {
+    return `
+    <div class="game--flow">
+      <div class="user--flow"></div>
+    <div class="circle--box win--range__box">
+      <span class="win--range">${this._data.gameRange}</span>
+    </div>
+     <div class="user--flow"></div>
+    </div>
+    <div class="game--message__box">
+      <span class="game--message">${this._data.gameMessage}</span>
+    </div>`;
+  }
+
+  _setScores(data) {
+    const userScores =
+      this._parentElement.parentElement.querySelectorAll(".user--score");
+
+    userScores.forEach((el, i) =>
+      i === 0
+        ? (el.textContent = data.robotScore)
+        : (el.textContent = data.playerScore)
+    );
+  }
+
+  updataRange(data) {
+    const range = this._parentElement.querySelector(".win--range");
+    range.textContent = data;
   }
 }
 
