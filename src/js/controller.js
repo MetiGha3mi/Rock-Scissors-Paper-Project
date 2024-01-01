@@ -8,6 +8,7 @@ import gamePannelView from "./views/gamePannelView.js";
 import increaseFormView from "./views/increaseFormView.js";
 import historyView from "./views/historyView.js";
 import gameFlowView from "./views/gameFlowView.js";
+import gameMessageView from "./views/gameMessageView.js";
 
 // Control Game Pannel Function
 const controlGame = function (data) {
@@ -15,7 +16,8 @@ const controlGame = function (data) {
   if (data === "reset") return gameFlowView.reset(model.resetGame());
 
   // 2) Check for Game End
-  if (model.state.isGameEnd) return;
+  if (model.state.isGameEnd)
+    return gameMessageView.showGameMessage(model.state.gameMessage);
 
   // 3) Setup Game Object
   model.gameRun(data);
