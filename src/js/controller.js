@@ -9,11 +9,12 @@ import increaseFormView from "./views/increaseFormView.js";
 import historyView from "./views/historyView.js";
 import gameFlowView from "./views/gameFlowView.js";
 import gameMessageView from "./views/gameMessageView.js";
+import gameAlertView from "./views/gameAlertView.js";
 
 // Control Game Pannel Function
 const controlGame = function (data) {
   // 1) Check if data = "reset"
-  if (data === "reset") return gameFlowView.reset(model.resetGame());
+  if (data === "reset") return controlResetGame();
 
   // 2) Check for Game End
   if (model.state.isGameEnd)
@@ -35,9 +36,30 @@ const controlGameRange = function () {
   gameFlowView.updataRange(model.setGameRange(value));
 };
 
+const controlResetGame = function () {
+  // 1) Check if isGameEnd = true, then Reset Whole the Game
+  if (model.state.isGameEnd) return gameFlowView.reset(model.resetGame());
+
+  // 2) Check if isGameEnd = false and is There any Data (in {} format) in model.state.data, then Show the Alert Message
+  if (!model.state.isGameEnd && model.state.data !== null)
+    return gameAlertView.showWindow();
+};
+
+const controlGameAlert = function (dataSet) {
+  // 1) Check if User Clicks "NO" btn, then Return this function
+  if (dataSet === "no") return gameAlertView.hideWindow();
+
+  // 2) Check if User Clicks "YES" btn, the  Reset Whole the Games
+  if (dataSet === "yes") {
+    gameFlowView.reset(model.resetGame());
+    return gameAlertView.hideWindow();
+  }
+};
+
 // init function
 const init = function () {
   gamePannelView.addHandlerClick(controlGame);
   increaseFormView.addHandlerSubmit(controlGameRange);
+  gameAlertView.addHandlerClick(controlGameAlert);
 };
 init();

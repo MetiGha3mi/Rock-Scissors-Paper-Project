@@ -22,7 +22,7 @@ export const state = {
     robotScore: 0,
     playerScore: 0,
   },
-  data: {},
+  data: null,
   gameMessage: "",
   gameRange: 10,
   isGameEnd: false,
@@ -125,7 +125,7 @@ export const resetGame = function () {
     robotScore: 0,
     playerScore: 0,
   };
-  state.data = {};
+  state.data = null;
   state.gameMessage = "Please start the game";
   state.gameRange = 10;
   state.isGameEnd = false;
