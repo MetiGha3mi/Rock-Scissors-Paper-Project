@@ -1,0 +1,74 @@
+/* Game flow Section */
+.game--flow__section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.user--box {
+  width: 20%;
+  padding: 2rem;
+  background-color: #ffffff8a;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.user--name {
+  width: 6rem;
+  height: 6rem;
+  border: 5px solid #333;
+  font-size: 1.4rem;
+}
+
+.user--score {
+  font-size: 4rem;
+}
+
+.game--flow__box {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.game--flow {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.win--range__box {
+  width: 5.5rem;
+  height: 5.5rem;
+  border: 4px solid #ffffffcc;
+}
+.win--range {
+  font-size: 2rem;
+  color: #ffffffcc;
+}
+
+.user--flow {
+  width: 12rem;
+  height: 12rem;
+  padding: 1.8rem;
+}
+.game--flow__img {
+  width: 100%;
+  height: 100%;
+}
+
+.game--message__box {
+  width: 100%;
+  text-align: center;
+}
+.game--message {
+  color: #ffffffcc;
+  font-size: 1.4rem;
+}

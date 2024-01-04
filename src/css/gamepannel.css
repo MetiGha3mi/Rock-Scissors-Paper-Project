@@ -1,0 +1,19 @@
+/* Game Pannel */
+.game--pannel__section {
+  width: 100%;
+  text-align: center;
+}
+
+.game--pannel {
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.btn--game__pannel,
+.btn--reset__pannel {
+  background-color: #ffffff8a;
+}

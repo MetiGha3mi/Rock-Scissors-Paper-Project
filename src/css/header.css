@@ -1,0 +1,10 @@
+/* Header */
+.header {
+  width: 100%;
+  padding: 1.4em 0;
+  background-color: #ffffff8a;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 4rem;
+}
