@@ -32,18 +32,18 @@ const controlGameRange = function () {
   const value = increaseFormView.getNewGameRange();
   if (!value || value <= 0) return;
 
-  // 2) Check if isGameEnd = true, Don't Change anything!
+  // 2) Check if isGameEnd = true, Return a Game Message
   if (model.state.isGameEnd)
     return gameMessageView.showGameMessage(
       "Game has been ended! please reset game first"
     );
 
-  // 3) set value that we recieved to the model.state.updateGameRange
+  // 3) Set Value That Recieved, To the model.state.updateGameRange
   model.state.updatedGameRange = value;
 
-  console.log(model.state.updatedGameRange);
-
+  // 4) Check If There is no Data(in {} format) in model.state.data, Update the Range
   if (!model.state.data) return gameFlowView.updataRange(model.setGameRange());
+  // 5) Else There is any Data(in {} format) in model.state.data, Then Alert User Before Doing Anything!
   else return gameAlertView.showWindow();
 };
 
@@ -52,7 +52,7 @@ const controlResetGame = function () {
   if (model.state.isGameEnd || !model.state.data)
     return gameFlowView.reset(model.resetGame());
 
-  // 2) Check if isGameEnd = false and is There any Data (in {} format) in model.state.data, then Show the Alert Message
+  // 2) Check if isGameEnd = false and is There any Data (in {} format) in model.state.data, Then Show the Alert Message
   if (!model.state.isGameEnd && model.state.data !== null)
     return gameAlertView.showWindow();
 };
@@ -63,11 +63,14 @@ const controlGameAlert = function (dataSet) {
 
   // 2) Check if User Clicks "YES" btn, the  Reset Whole the Games
   if (dataSet === "yes") {
+    // 2.1) If There is Value in model.state.updateGameRange, Then Update the Game Range
     if (model.state.updatedGameRange)
       gameFlowView.updataRange(model.setGameRange());
 
+    // 2.2) Reset Whole Game Anyway
     gameFlowView.reset(model.resetGame());
 
+    // 2.3) After All, Close The Game Alert Modal Window
     return gameAlertView.hideWindow();
   }
 };
