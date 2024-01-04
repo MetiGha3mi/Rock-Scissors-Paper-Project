@@ -25,6 +25,14 @@ const controlGame = function (data) {
 
   // 4) Render Game Flow
   gameFlowView.render(model.state.data);
+
+  // 5) Add Results to the History
+  if (
+    model.state.history &&
+    Array.isArray(model.state.history) &&
+    model.state.isGameEnd
+  )
+    historyView.addHistory(model.state.history);
 };
 
 const controlGameRange = function () {

@@ -129,6 +129,17 @@
   list-style: none;
 }
 
+.history--box__scroll {
+  overflow-y: scroll;
+}
+
+.history--message {
+  display: block;
+  padding: 2rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
 .history--list__item {
   padding: 2rem 0;
   background-color: #ffffff8a;
@@ -160,7 +171,9 @@
 }
 
 .history--user__results {
+  text-align: center;
   font-size: 2rem;
+  width: 4rem;
 }
 
 .history--results__message {

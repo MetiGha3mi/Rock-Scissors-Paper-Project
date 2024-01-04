@@ -30,6 +30,7 @@ export const state = {
   gameRange: GAME_DEF_RANGE,
   isGameEnd: false,
   updatedGameRange: null,
+  history: [],
 };
 
 // Run the Game
@@ -43,7 +44,7 @@ export const gameRun = function (data) {
   state.gameMessage = gameLogic(gameMoves);
   isGameEnd();
 
-  // 3) Return Final Data for Render
+  // 3) Set Final Data for Render
   state.data = {
     scores: state.scores,
     moves: state.moves,
@@ -54,6 +55,8 @@ export const gameRun = function (data) {
     gameMessage: state.gameMessage,
     gameRange: state.gameRange,
   };
+  saveGameHistory(state.data);
+  console.log(state.history);
 };
 
 // Set Game Range
@@ -140,4 +143,9 @@ export const resetGame = function () {
     : null;
 
   return state;
+};
+
+// Game History
+const saveGameHistory = function (data) {
+  if (state.isGameEnd) return state.history.push(data);
 };
