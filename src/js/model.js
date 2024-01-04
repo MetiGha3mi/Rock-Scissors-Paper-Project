@@ -2,6 +2,9 @@
 import "core-js";
 import "regenerator-runtime";
 
+// Modules
+import { GAME_DEF_RANGE } from "./config";
+
 // Game Images
 import imgRock from "../img/rockGame.png";
 import imgScissors from "../img/scissorsGame.png";
@@ -24,8 +27,9 @@ export const state = {
   },
   data: null,
   gameMessage: "",
-  gameRange: 10,
+  gameRange: GAME_DEF_RANGE,
   isGameEnd: false,
+  updatedGameRange: null,
 };
 
 // Run the Game
@@ -53,8 +57,8 @@ export const gameRun = function (data) {
 };
 
 // Set Game Range
-export const setGameRange = function (value) {
-  state.gameRange = value;
+export const setGameRange = function () {
+  state.gameRange = state.updatedGameRange;
   return state.gameRange;
 };
 
@@ -127,8 +131,13 @@ export const resetGame = function () {
   };
   state.data = null;
   state.gameMessage = "Please start the game";
-  state.gameRange = 10;
+  state.gameRange = state.updatedGameRange
+    ? state.updatedGameRange
+    : GAME_DEF_RANGE;
   state.isGameEnd = false;
+  state.updatedGameRange = state.updatedGameRange
+    ? state.updatedGameRange
+    : null;
 
   return state;
 };

@@ -32,13 +32,25 @@ const controlGameRange = function () {
   const value = increaseFormView.getNewGameRange();
   if (!value || value <= 0) return;
 
-  // 2) Set Game Range = value
-  gameFlowView.updataRange(model.setGameRange(value));
+  // 2) Check if isGameEnd = true, Don't Change anything!
+  if (model.state.isGameEnd)
+    return gameMessageView.showGameMessage(
+      "Game has been ended! please reset game first"
+    );
+
+  // 3) set value that we recieved to the model.state.updateGameRange
+  model.state.updatedGameRange = value;
+
+  console.log(model.state.updatedGameRange);
+
+  if (!model.state.data) return gameFlowView.updataRange(model.setGameRange());
+  else return gameAlertView.showWindow();
 };
 
 const controlResetGame = function () {
   // 1) Check if isGameEnd = true, then Reset Whole the Game
-  if (model.state.isGameEnd) return gameFlowView.reset(model.resetGame());
+  if (model.state.isGameEnd || !model.state.data)
+    return gameFlowView.reset(model.resetGame());
 
   // 2) Check if isGameEnd = false and is There any Data (in {} format) in model.state.data, then Show the Alert Message
   if (!model.state.isGameEnd && model.state.data !== null)
@@ -51,7 +63,11 @@ const controlGameAlert = function (dataSet) {
 
   // 2) Check if User Clicks "YES" btn, the  Reset Whole the Games
   if (dataSet === "yes") {
+    if (model.state.updatedGameRange)
+      gameFlowView.updataRange(model.setGameRange());
+
     gameFlowView.reset(model.resetGame());
+
     return gameAlertView.hideWindow();
   }
 };
