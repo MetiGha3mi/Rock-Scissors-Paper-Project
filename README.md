@@ -1,3 +1,3 @@
 # New version of Rock Scissors Paper Project
 
-Comming soon ...!
+Primary Compeleted New Version ...!
