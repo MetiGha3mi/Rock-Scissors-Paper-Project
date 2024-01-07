@@ -4,7 +4,7 @@ import "regenerator-runtime";
 
 // Modules
 import ModalView from "./modalView.js";
-import { LOAD_TIME } from "../config.js";
+import { LOAD_TIME } from "../../config.js";
 
 class IncreaseFormView extends ModalView {
   _parentElement = document.querySelector(".history--box");

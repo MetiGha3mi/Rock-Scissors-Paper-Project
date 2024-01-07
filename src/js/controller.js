@@ -5,11 +5,11 @@ import "regenerator-runtime";
 // Modules
 import * as model from "./model.js";
 import gamePannelView from "./views/gamePannelView.js";
-import increaseFormView from "./views/increaseFormView.js";
-import historyView from "./views/historyView.js";
 import gameFlowView from "./views/gameFlowView.js";
-import gameMessageView from "./views/gameMessageView.js";
-import gameAlertView from "./views/gameAlertView.js";
+import increaseFormView from "./views/modalViews/increaseFormView.js";
+import historyView from "./views/modalViews/historyView.js";
+import gameMessageView from "./views/modalViews/gameMessageView.js";
+import gameAlertView from "./views/modalViews/gameAlertView.js";
 
 // Control Game Pannel Function
 const controlGame = function (data) {
